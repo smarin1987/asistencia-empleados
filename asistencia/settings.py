@@ -1,7 +1,7 @@
 import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECRET_KEY = 'tu-clave-secreta-aqui'  # Cambia esto en producción!
+SECRET_KEY = 'django-insecure-tu-clave-secreta-aqui'  # Cambia esto luego
 DEBUG = True
 ALLOWED_HOSTS = ['*']
 
@@ -26,7 +26,23 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'asistencia.urls'
-TEMPLATES = [ ... ]  # (Puedes copiar esto completo luego)
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
